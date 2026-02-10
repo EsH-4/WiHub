@@ -1,0 +1,591 @@
+/* =========================================================
+   github-dark.css (CLEAN)
+   - Supports: gh-* (main), welcome (discord-*), legacy auth (discord-*)
+   ========================================================= */
+
+/* ============ Tokens ============ */
+:root{
+  --gh-bg: #0d1117;
+  --gh-panel: #161b22;
+  --gh-border: #30363d;
+  --gh-text: #e6edf3;
+  --gh-muted: #8b949e;
+  --gh-link: #2f81f7;
+
+  --gh-input-bg: #010409;
+  --gh-focus: #2f81f7;
+
+  --gh-success: #238636;
+  --gh-success-hover: #2ea043;
+
+  --gh-danger: #da3633;
+  --gh-danger-hover: #f85149;
+
+  --gh-secondary: #21262d;
+  --gh-secondary-hover: #30363d;
+
+  --gh-shadow: 0 0 0 1px rgba(48,54,61,.55), 0 16px 48px rgba(1,4,9,.85);
+}
+
+/* ============ Base ============ */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body.gh-bg,
+body.discord-bg{
+  margin: 0;
+  background: var(--gh-bg);
+  color: var(--gh-text);
+  font: 14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* Layout helpers */
+.gh-container{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.gh-page{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* Links */
+.gh-link,
+.discord-link{
+  color: var(--gh-link);
+  text-decoration: none;
+}
+.gh-link:hover,
+.discord-link:hover{
+  text-decoration: underline;
+}
+
+/* Muted text */
+.gh-muted,
+.discord-muted{
+  color: var(--gh-muted);
+}
+
+/* ============ Animations (single source) ============ */
+.animate-fade-in{ animation: fadeIn .25s ease-out both; }
+.animate-fade-in-up{ animation: fadeInUp .35s ease-out both; }
+.animate-delay-1{ animation-delay: .08s; }
+
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+@keyframes fadeInUp{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   GH NAV (layout)
+   ========================================================= */
+.gh-nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(13,17,23,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gh-border);
+  padding: 10px 16px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gh-nav-brand{
+  color: var(--gh-text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.gh-nav-links{
+  display:flex;
+  align-items:center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gh-nav-link{
+  color: var(--gh-muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.gh-nav-link:hover{
+  color: var(--gh-text);
+  background: var(--gh-panel);
+}
+
+.gh-nav-form{
+  display:inline-flex;
+  margin: 0;
+}
+
+/* =========================================================
+   GH FORMS + INPUTS + BUTTONS (shared)
+   ========================================================= */
+.gh-label{
+  display:block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--gh-text);
+}
+
+.gh-input,
+.gh-textarea{
+  width:100%;
+  border-radius: 6px;
+  border: 1px solid var(--gh-border);
+  background: var(--gh-input-bg);
+  color: var(--gh-text);
+  font-size: 14px;
+  padding: 6px 12px;
+  outline: none;
+}
+
+.gh-input{ height: 32px; }
+.gh-textarea{
+  min-height: 220px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.gh-input::placeholder{ color: #6e7681; }
+
+.gh-input:focus,
+.gh-textarea:focus{
+  border-color: var(--gh-focus);
+  box-shadow: 0 0 0 3px rgba(47,129,247,.3);
+}
+
+.gh-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgba(240,246,252,.1);
+  text-decoration:none;
+  user-select: none;
+}
+
+.gh-btn-sm{
+  height: 28px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.gh-btn-primary{
+  background: var(--gh-success);
+  color: #fff;
+}
+.gh-btn-primary:hover{ background: var(--gh-success-hover); }
+
+.gh-btn-secondary{
+  background: var(--gh-secondary);
+  color: var(--gh-text);
+  border-color: var(--gh-border);
+}
+.gh-btn-secondary:hover{ background: var(--gh-secondary-hover); }
+
+.gh-btn-danger{
+  background: var(--gh-danger);
+  color: #fff;
+}
+.gh-btn-danger:hover{ background: var(--gh-danger-hover); }
+
+.gh-btn-block{ width: 100%; }
+
+/* Alerts */
+.gh-alert{
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  border: 1px solid transparent;
+  margin-bottom: 16px;
+}
+.gh-alert-danger{
+  background: rgba(248,81,73,.12);
+  border-color: rgba(248,81,73,.45);
+  color: #ffb4b4;
+}
+.gh-alert-success{
+  background: rgba(35,134,54,.15);
+  border-color: rgba(35,134,54,.45);
+  color: #a7f3b3;
+}
+.gh-alert ul{ margin:0; padding-left: 18px; }
+
+/* Headings */
+.gh-h1{
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gh-text);
+}
+
+/* =========================================================
+   GH AUTH (login/register page that uses gh-*)
+   ========================================================= */
+.gh-auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 24px 16px;
+}
+
+.gh-card{
+  width: 100%;
+  max-width: 420px;
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  box-shadow: var(--gh-shadow);
+}
+
+.gh-auth-card{ padding: 18px 16px; }
+
+.gh-title{
+  margin: 0 0 6px 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  text-align:center;
+}
+.gh-subtitle{
+  margin: 0 0 14px 0;
+  color: var(--gh-muted);
+  font-size: 14px;
+  text-align:center;
+}
+
+/* =========================================================
+   ARTICLES INDEX (gh-*)
+   ========================================================= */
+.gh-page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.gh-search{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.gh-search .gh-input{ flex: 1; }
+
+.gh-article-card{
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 1px rgba(48,54,61,.25);
+}
+
+.gh-article-title{
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.gh-article-title a{
+  color: var(--gh-text);
+  text-decoration: none;
+}
+.gh-article-title a:hover{ color: var(--gh-link); }
+
+.gh-article-meta{
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: var(--gh-muted);
+}
+.gh-article-excerpt{
+  margin: 0 0 10px 0;
+  color: #b5bac1;
+  line-height: 1.6;
+}
+.gh-readmore{ font-size: 13px; }
+
+.gh-empty{
+  text-align: center;
+  padding: 28px 16px;
+  border: 1px dashed var(--gh-border);
+  border-radius: 6px;
+  color: var(--gh-muted);
+}
+
+.gh-pagination{ margin-top: 16px; }
+
+/* =========================================================
+   ARTICLE DETAIL (gh-*)
+   ========================================================= */
+.gh-article-detail{
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 0 0 1px rgba(48,54,61,.25);
+}
+
+.gh-article-detail-title{
+  margin: 0 0 6px 0;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--gh-text);
+  line-height: 1.25;
+}
+
+.gh-article-detail-meta{
+  margin: 0 0 20px 0;
+  font-size: 13px;
+  color: var(--gh-muted);
+}
+
+.gh-article-detail-content{
+  color: #b5bac1;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.gh-article-actions{
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gh-border);
+  display: flex;
+  gap: 10px;
+}
+
+.gh-back-link{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--gh-link);
+  text-decoration: none;
+}
+.gh-back-link:hover{ text-decoration: underline; }
+
+/* =========================================================
+   ARTICLE FORM (create/edit) (gh-*)
+   ========================================================= */
+.gh-form-card{
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 0 0 1px rgba(48,54,61,.25);
+}
+
+.gh-form-title{ margin-bottom: 20px; }
+
+.gh-form-group{ margin-bottom: 16px; }
+
+.gh-form-actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   DASHBOARD (gh-*)
+   ========================================================= */
+.gh-dashboard-card{
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 0 0 1px rgba(48,54,61,.25);
+}
+
+.gh-dashboard-subtitle{
+  margin: 6px 0 18px 0;
+  color: var(--gh-muted);
+  font-size: 14px;
+}
+
+.gh-dashboard-links{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.gh-separator{ color: var(--gh-border); }
+.gh-dashboard-logout{ margin-top: 18px; }
+
+/* =========================================================
+   WELCOME (legacy markup uses discord-*)
+   ========================================================= */
+.discord-card{
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  box-shadow: var(--gh-shadow);
+  padding: 22px 20px;
+}
+
+.welcome-hero h1{
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.welcome-hero p{
+  margin: 0 0 18px 0;
+  color: var(--gh-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.welcome-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-welcome-primary,
+.btn-welcome-secondary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid rgba(240,246,252,.1);
+}
+
+.btn-welcome-primary{
+  background: var(--gh-success);
+  color: #fff;
+}
+.btn-welcome-primary:hover{ background: var(--gh-success-hover); }
+
+.btn-welcome-secondary{
+  background: var(--gh-secondary);
+  color: var(--gh-text);
+  border-color: var(--gh-border);
+}
+.btn-welcome-secondary:hover{ background: var(--gh-secondary-hover); }
+
+/* =========================================================
+   LEGACY AUTH (if you still use register page with discord-* classes)
+   NOTE: If you have migrated to gh-* auth, you can delete this block.
+   ========================================================= */
+.discord-auth-card{ width: 100%; max-width: 420px; }
+
+.auth-header{ text-align:center; margin-bottom: 16px; }
+.auth-header h1{
+  margin: 0 0 6px 0;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.2px;
+}
+.auth-header .subtitle{
+  margin: 0;
+  color: var(--gh-muted);
+  font-size: 14px;
+}
+
+.auth-form,
+.auth-footer{
+  background: var(--gh-panel);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+}
+
+.auth-form{ padding: 16px; box-shadow: var(--gh-shadow); }
+.auth-footer{ margin-top: 16px; padding: 16px; text-align:center; box-shadow: var(--gh-shadow); }
+
+.discord-form-group{ margin-bottom: 12px; }
+.discord-form-group label{
+  display:block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--gh-text);
+}
+
+.discord-input{
+  width:100%;
+  height: 32px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--gh-border);
+  background: var(--gh-input-bg);
+  color: var(--gh-text);
+  font-size: 14px;
+  outline: none;
+}
+.discord-input::placeholder{ color: #6e7681; }
+.discord-input:focus{
+  border-color: var(--gh-focus);
+  box-shadow: 0 0 0 3px rgba(47,129,247,.3);
+}
+
+/* discord buttons (legacy) */
+.btn-discord{
+  width: 100%;
+  height: 32px;
+  margin-top: 8px;
+  border: 1px solid rgba(240,246,252,.1);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-discord-success{
+  background: var(--gh-success);
+  color: #fff;
+}
+.btn-discord-success:hover{ background: var(--gh-success-hover); }
+
+.discord-alert-error{
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 12px;
+  background: rgba(248,81,73,.12);
+  border: 1px solid rgba(248,81,73,.45);
+  color: #ffb4b4;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+.discord-alert-error ul{ margin:0; padding-left: 18px; }
+
+.discord-back-link{
+  display:inline-block;
+  margin-top: 10px;
+  color: var(--gh-muted);
+  text-decoration:none;
+  font-size: 13px;
+}
+.discord-back-link:hover{ color: var(--gh-text); }
