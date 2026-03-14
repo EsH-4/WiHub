@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Semua Artikel')
+@section('title', 'All Articles')
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/github-dark.css') }}">
 <div class="gh-page">
   <div class="gh-page-header animate-fade-in-up">
-    <h1 class="gh-h1">Semua Artikel</h1>
+    <h1 class="gh-h1">All Articles</h1>
 
     @auth
       <a href="{{ route('articles.create') }}" class="gh-btn gh-btn-primary">
-        + Buat Artikel Baru
+        + Create New Article
       </a>
     @endauth
   </div>
@@ -20,11 +20,11 @@
       type="text"
       name="q"
       value="{{ request('q') }}"
-      placeholder="Cari artikel..."
+      placeholder="Search articles..."
       class="gh-input"
     >
     <button type="submit" class="gh-btn gh-btn-secondary">
-      Cari
+      Search
     </button>
   </form>
 
@@ -37,7 +37,7 @@
       </h2>
 
       <p class="gh-article-meta">
-        Oleh {{ $article->user->name }} · {{ $article->created_at->format('d M Y') }}
+        By {{ $article->user->name }} · {{ $article->created_at->format('d M Y') }}
       </p>
 
       <p class="gh-article-excerpt">
@@ -45,15 +45,15 @@
       </p>
 
       <a href="{{ route('articles.show', $article) }}" class="gh-link gh-readmore">
-        Baca selengkapnya →
+        Read more →
       </a>
     </article>
   @empty
     <div class="gh-empty animate-fade-in-up">
-      <p>Belum ada artikel.</p>
+      <p>No articles yet.</p>
       @auth
         <a href="{{ route('articles.create') }}" class="gh-btn gh-btn-primary">
-          Buat Artikel Pertama
+          Create First Article
         </a>
       @endauth
     </div>

@@ -12,19 +12,19 @@
     <a href="{{ route('articles.index') }}" class="gh-nav-brand">WiHub</a>
 
     <div class="gh-nav-links">
-      <a href="{{ route('articles.index') }}" class="gh-nav-link">Semua Artikel</a>
+      <a href="{{ route('articles.index') }}" class="gh-nav-link">All Articles</a>
 
       @auth
-        <a href="{{ route('articles.create') }}" class="gh-nav-link">Buat Artikel</a>
+        <a href="{{ route('articles.create') }}" class="gh-nav-link">New Article</a>
         <a href="{{ route('dashboard') }}" class="gh-nav-link">Dashboard</a>
 
         <form method="POST" action="{{ route('logout') }}" class="gh-nav-form">
           @csrf
-          <button type="submit" class="gh-btn gh-btn-danger gh-btn-sm">Keluar</button>
+          <button type="submit" class="gh-btn gh-btn-danger gh-btn-sm">Logout</button>
         </form>
       @else
-        <a href="{{ route('login') }}" class="gh-nav-link">Masuk</a>
-        <a href="{{ route('register') }}" class="gh-nav-link">Daftar</a>
+        <a href="{{ route('login') }}" class="gh-nav-link">Login</a>
+        <a href="{{ route('register') }}" class="gh-nav-link">Register</a>
       @endauth
     </div>
   </nav>

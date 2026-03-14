@@ -11,8 +11,8 @@
     </h1>
 
     <p class="gh-article-detail-meta">
-      Oleh {{ $article->user->name }} ·
-      Terakhir diperbarui {{ $article->updated_at->format('d M Y H:i') }}
+      By {{ $article->user->name }} ·
+      Last updated {{ $article->updated_at->format('d M Y H:i') }}
     </p>
 
     <div class="gh-article-detail-content">
@@ -29,12 +29,12 @@
           <form
             method="POST"
             action="{{ route('articles.destroy', $article) }}"
-            onsubmit="return confirm('Yakin ingin menghapus artikel ini?');"
+            onsubmit="return confirm('Are you sure you want to delete this article?');"
           >
             @csrf
             @method('DELETE')
             <button type="submit" class="gh-btn gh-btn-danger">
-              Hapus
+              Delete
             </button>
           </form>
         </div>
@@ -43,7 +43,7 @@
   </article>
 
   <a href="{{ route('articles.index') }}" class="gh-back-link animate-fade-in-up">
-    ← Kembali ke Daftar Artikel
+    ← Back to Articles
   </a>
 </div>
 @endsection

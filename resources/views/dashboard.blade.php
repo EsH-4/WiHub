@@ -9,18 +9,18 @@
     <h1 class="gh-h1">Dashboard</h1>
 
     <p class="gh-dashboard-subtitle">
-      Selamat datang, {{ auth()->user()->name ?? auth()->user()->email }}!
+      Welcome, {{ auth()->user()->name ?? auth()->user()->email }}!
     </p>
 
     <div class="gh-dashboard-links">
-      <a href="{{ route('articles.index') }}" class="gh-link">Lihat Semua Artikel</a>
+      <a href="{{ route('articles.index') }}" class="gh-link">View All Articles</a>
       <span class="gh-separator">·</span>
-      <a href="{{ route('articles.create') }}" class="gh-link">Buat Artikel Baru</a>
+      <a href="{{ route('articles.create') }}" class="gh-link">Create New Article</a>
     </div>
 
     <form method="POST" action="{{ route('logout') }}" class="gh-dashboard-logout">
       @csrf
-      <button type="submit" class="gh-btn gh-btn-danger">Keluar</button>
+      <button type="submit" class="gh-btn gh-btn-danger">Logout</button>
     </form>
   </div>
 </div>

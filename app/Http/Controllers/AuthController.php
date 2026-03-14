@@ -29,7 +29,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email atau kata sandi yang Anda masukkan salah.',
+            'email' => 'The email or password you entered is incorrect.',
         ])->onlyInput('email');
     }
 

@@ -7,7 +7,7 @@
 <div class="gh-page">
   <div class="gh-form-card animate-fade-in-up">
 
-    <h1 class="gh-h1 gh-form-title">Edit Artikel</h1>
+    <h1 class="gh-h1 gh-form-title">Edit Article</h1>
 
     @if($errors->any())
       <div class="gh-alert gh-alert-danger">
@@ -24,7 +24,7 @@
       @method('PUT')
 
       <div class="gh-form-group">
-        <label for="title" class="gh-label">Judul</label>
+        <label for="title" class="gh-label">Title</label>
         <input
           type="text"
           id="title"
@@ -37,7 +37,7 @@
       </div>
 
       <div class="gh-form-group">
-        <label for="content" class="gh-label">Konten</label>
+        <label for="content" class="gh-label">Content</label>
         <textarea
           id="content"
           name="content"
@@ -48,11 +48,11 @@
 
       <div class="gh-form-actions">
         <button type="submit" class="gh-btn gh-btn-primary">
-          Simpan Perubahan
+          Save Changes
         </button>
 
         <a href="{{ route('articles.show', $article) }}" class="gh-btn gh-btn-secondary">
-          Batal
+          Cancel
         </a>
       </div>
     </form>

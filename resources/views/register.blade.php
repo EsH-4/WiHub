@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Akun</title>
+  <title>Create Account</title>
   <link rel="stylesheet" href="{{ asset('css/github-dark.css') }}">
 </head>
 
-<body class="discord-bg discord-auth-page">
-  <div class="discord-auth-card animate-fade-in-up">
+<body class="discord-bg discord-auth-page" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;">
+  <div class="discord-auth-card animate-fade-in-up" style="margin: 0 auto;">
     <div class="auth-header">
-      <h1>Buat Akun Baru</h1>
-      <p class="subtitle">Isi formulir berikut untuk mendaftar</p>
+      <h1>Create Account</h1>
+      <p class="subtitle">Fill in the form below to register</p>
     </div>
 
     @if($errors->any())
@@ -28,13 +28,13 @@
       @csrf
 
       <div class="discord-form-group">
-        <label for="name">Nama Lengkap</label>
+        <label for="name">Full Name</label>
         <input
           type="text"
           id="name"
           name="name"
           class="discord-input"
-          placeholder="Komar Susanto"
+          placeholder="John Doe"
           value="{{ old('name') }}"
           required
           autofocus
@@ -48,35 +48,35 @@
           id="email"
           name="email"
           class="discord-input"
-          placeholder="nama@gmail.com"
+          placeholder="you@example.com"
           value="{{ old('email') }}"
           required
         >
       </div>
 
       <div class="discord-form-group">
-        <label for="password">Kata Sandi</label>
+        <label for="password">Password</label>
         <input
           type="password"
           id="password"
           name="password"
           class="discord-input"
-          placeholder="Min. 5 karakter"
+          placeholder="Min. 5 characters"
           required
         >
       </div>
 
       <button type="submit" class="btn-discord btn-discord-success">
-        Daftar
+        Register
       </button>
     </form>
 
     <div class="auth-footer">
       <p class="discord-muted" style="font-size: 0.875rem;">
-        Sudah punya akun?
-        <a href="{{ route('login') }}" class="discord-link">Masuk</a>
+        Already have an account?
+        <a href="{{ route('login') }}" class="discord-link">Login</a>
       </p>
-      <a href="/" class="discord-back-link">← Kembali ke Beranda</a>
+      <a href="/" class="discord-back-link">← Back to Home</a>
     </div>
   </div>
 </body>

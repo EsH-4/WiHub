@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +15,8 @@
 
       <!-- Header -->
       <header>
-        <h1 class="gh-title">Masuk ke Akun</h1>
-        <p class="gh-subtitle">Silakan masukkan email dan kata sandi Anda</p>
+        <h1 class="gh-title">Login to Account</h1>
+        <p class="gh-subtitle">Enter your email and password</p>
       </header>
 
       <!-- Error -->
@@ -37,7 +37,7 @@
             id="email"
             name="email"
             class="gh-input"
-            placeholder="nama@contoh.com"
+            placeholder="you@example.com"
             value="{{ old('email') }}"
             required
             autofocus
@@ -45,7 +45,7 @@
         </div>
 
         <div class="gh-form-group">
-          <label for="password" class="gh-label">Kata Sandi</label>
+          <label for="password" class="gh-label">Password</label>
           <input
             type="password"
             id="password"
@@ -57,19 +57,19 @@
         </div>
 
         <button type="submit" class="gh-btn gh-btn-primary gh-btn-block">
-          Masuk
+          Login
         </button>
       </form>
 
       <!-- Footer -->
       <footer style="margin-top: 1.25rem; text-align: center;">
         <p class="gh-muted">
-          Belum punya akun?
-          <a href="{{ route('register') }}" class="gh-link">Daftar</a>
+          Don't have an account?
+          <a href="{{ route('register') }}" class="gh-link">Register</a>
         </p>
 
         <a href="/" class="gh-link" style="font-size: 0.875rem;">
-          ← Kembali ke Beranda
+          ← Back to Home
         </a>
       </footer>
 
