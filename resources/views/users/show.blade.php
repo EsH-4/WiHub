@@ -10,7 +10,6 @@
 <body class="gh-bg">
     <div class="gh-page">
 
-        <!-- TOP BAR -->
         <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom: 16px;">
             
             <a href="{{ route('dashboard') }}" class="gh-btn gh-btn-secondary">
