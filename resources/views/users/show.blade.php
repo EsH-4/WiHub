@@ -27,7 +27,6 @@
 
         </div>
 
-        <!-- USER PROFILE -->
         <div class="gh-article-card animate-fade-in-up">
             <h1 class="gh-h1">{{ $user->name }}</h1>
 
