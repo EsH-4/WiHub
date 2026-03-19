@@ -1,0 +1,2 @@
+- Add search for user
+- Add app to user(show.blade.php)

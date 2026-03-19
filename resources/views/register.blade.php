@@ -39,6 +39,25 @@
           required
           autofocus
         >
+        @error('name')
+          <small style="color: #ff6b6b; display: block; margin-top: 6px;">{{ $message }}</small>
+        @enderror
+      </div>
+
+      <div class="discord-form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="discord-input"
+          placeholder="johndoe"
+          value="{{ old('username') }}"
+          required
+        >
+        @error('username')
+          <small style="color: #ff6b6b; display: block; margin-top: 6px;">{{ $message }}</small>
+        @enderror
       </div>
 
       <div class="discord-form-group">
@@ -52,6 +71,9 @@
           value="{{ old('email') }}"
           required
         >
+        @error('email')
+          <small style="color: #ff6b6b; display: block; margin-top: 6px;">{{ $message }}</small>
+        @enderror
       </div>
 
       <div class="discord-form-group">
@@ -62,6 +84,21 @@
           name="password"
           class="discord-input"
           placeholder="Min. 5 characters"
+          required
+        >
+        @error('password')
+          <small style="color: #ff6b6b; display: block; margin-top: 6px;">{{ $message }}</small>
+        @enderror
+      </div>
+
+      <div class="discord-form-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <input
+          type="password"
+          id="password_confirmation"
+          name="password_confirmation"
+          class="discord-input"
+          placeholder="Repeat your password"
           required
         >
       </div>
