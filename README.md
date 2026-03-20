@@ -14,7 +14,7 @@ WiHub is a simple and modern wiki-style article platform built with Laravel. It 
 * 🔍 **Search** — Find articles by title or content
 * 🔐 **Authentication** — Register, login, and logout (session-based)
 * 👤 **Author Attribution** — Each article is linked to its creator
-* 📊 **Dashboard** — Halaman khusus untuk user yang login
+* 📊 **Dashboard** — Dedicated dashboard for authenticated users
 * 🌙 **Dark Mode UI** — Tampilan clean dengan tema gelap ala GitHub
 
 ---
