@@ -33,7 +33,7 @@ WiHub is a simple and modern wiki-style article platform built with Laravel. It 
 
 ## 📋 Requirements
 
-Pastikan environment kamu memenuhi:
+Make sure your environment meets the following:
 
 * PHP **8.2+**
 
