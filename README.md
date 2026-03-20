@@ -1,6 +1,6 @@
 # 🧠 WiHub
 
-WiHub is a simple and modern wiki-style article platform built with Laravel. It allows users to create, read, update, and delete articles with authentication and search functionality.
+**WiHub** is a simple and modern wiki-style article platform built with Laravel. It allows users to create, read, update, and delete articles with authentication and search functionality.
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square\&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square\&logo=php)
@@ -15,7 +15,7 @@ WiHub is a simple and modern wiki-style article platform built with Laravel. It 
 * 🔐 **Authentication** — Register, login, and logout (session-based)
 * 👤 **Author Attribution** — Each article is linked to its creator
 * 📊 **Dashboard** — Dedicated dashboard for authenticated users
-* 🌙 **Dark Mode UI** — Clean interface with a GitHub-inspired dark theme
+* 🌙 **Dark UI** — Clean interface with a GitHub-inspired dark theme
 
 ---
 
@@ -39,8 +39,8 @@ Make sure your environment meets the following:
 
   * Extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
 * Composer
-* Node.js & npm *(optional untuk asset build)*
-SQLite / MySQL / PostgreSQL
+* Node.js & npm *(optional for frontend assets)*
+* SQLite / MySQL / PostgreSQL
 
 ---
 
@@ -55,7 +55,7 @@ cd WiHub
 
 ---
 
-### 2. Install Dependency & Setup App
+### 2. Install Dependencies & Setup
 
 ```bash
 composer install
@@ -65,7 +65,7 @@ php artisan key:generate
 
 ---
 
-### 3. Setup Database
+### 3. Database Setup
 
 #### SQLite (Default)
 
@@ -81,7 +81,7 @@ php artisan migrate
 
 #### MySQL / PostgreSQL
 
-Edit `.env`:
+Update your `.env` file:
 
 ```
 DB_CONNECTION=mysql
@@ -90,7 +90,7 @@ DB_USERNAME=your_user
 DB_PASSWORD=your_password
 ```
 
-Lalu jalankan:
+Then run:
 
 ```bash
 php artisan migrate
@@ -107,26 +107,26 @@ npm run build
 
 ---
 
-### 5. Run Application
+### 5. Run the Application
 
 ```bash
 php artisan serve
 ```
 
-Buka di browser:
+Open in your browser:
 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
 ## ⚡ Quick Setup
 
-Untuk setup cepat:
+For a faster setup:
 
 ```bash
 composer run-script setup
 ```
 
-⚠️ Pastikan file `database/database.sqlite` sudah ada sebelum menjalankan perintah ini.
+⚠️ Make sure `database/database.sqlite` exists before running this command if using SQLite.
 
 ---
 
@@ -143,7 +143,7 @@ composer run-script setup
 | Register       | `/register`               |
 | Dashboard      | `/dashboard` (auth)       |
 
-🔒 Hanya user login yang bisa membuat, mengedit, dan menghapus artikel.
+🔒 Only authenticated users can create, edit, and delete articles.
 
 ---
 
@@ -172,21 +172,21 @@ WiHub/
 
 ## ⚙️ Environment Variables
 
-Beberapa konfigurasi penting di `.env`:
+Key variables in `.env`:
 
-* `APP_NAME` — Nama aplikasi
-* `APP_KEY` — Kunci enkripsi
-* `APP_URL` — URL aplikasi
+* `APP_NAME` — Application name
+* `APP_KEY` — Encryption key
+* `APP_URL` — Application URL
 * `DB_CONNECTION` — sqlite / mysql / pgsql
 * `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
 
-Lihat `.env.example` untuk detail lengkap.
+See `.env.example` for the full list.
 
 ---
 
 ## 📄 License
 
-Project ini menggunakan lisensi **MIT**.
+This project is licensed under the **MIT License**.
 👉 [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
 
 ---
@@ -195,13 +195,3 @@ Project ini menggunakan lisensi **MIT**.
 
 * Built with ❤️ using [Laravel](https://laravel.com)
 * UI inspired by GitHub Dark Theme
-
----
-
-## 🔧 Improvement yang gue lakukan
-
-* Konsistensi bahasa & style (lebih profesional)
-* Penambahan emoji secukupnya biar lebih readable
-* Struktur section lebih rapi & modern
-* Terminologi lebih jelas (misal: “Article Management” instead of panjang)
-* Table & spacing dibenerin biar clean
