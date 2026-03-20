@@ -40,7 +40,7 @@ Make sure your environment meets the following:
   * Extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
 * Composer
 * Node.js & npm *(optional untuk asset build)*
-* SQLite / MySQL / PostgreSQL
+SQLite / MySQL / PostgreSQL
 
 ---
 
