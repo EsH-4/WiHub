@@ -1,55 +1,61 @@
-# WiHub
+# 🧠 WiHub
 
-A simple, modern wiki-style article platform built with Laravel. Create, read, update, and delete articles with user authentication and search.
+**WiHub** adalah platform artikel bergaya wiki yang sederhana dan modern, dibangun menggunakan Laravel. Aplikasi ini memungkinkan pengguna untuk membuat, membaca, memperbarui, dan menghapus artikel dengan sistem autentikasi dan fitur pencarian.
 
-![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square&logo=laravel)
-![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square&logo=php)
+![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square\&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square\&logo=php)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ---
 
-## Features
+## ✨ Features
 
-- **Articles** — List, create, edit, delete, and view articles with rich content
-- **Search** — Find articles by title or content
-- **Authentication** — Register, login, and logout with session-based auth
-- **Author attribution** — Each article is tied to the user who created it
-- **Dashboard** — Simple dashboard for logged-in users
-- **Dark UI** — Clean, readable interface with a GitHub-inspired dark theme
-
----
-
-## Tech Stack
-
-| Layer        | Technology                    |
-| ------------ | ----------------------------- |
-| Backend      | Laravel 12, PHP 8.2+          |
-| Frontend     | Blade templates, vanilla JS   |
-| Styling      | Custom CSS (github-dark theme)|
-| Database     | SQLite (default), MySQL ready |
-| Build        | Vite (optional for assets)    |
+* 📝 **Article Management** — CRUD artikel dengan konten rich text
+* 🔍 **Search** — Cari artikel berdasarkan judul atau isi
+* 🔐 **Authentication** — Register, login, logout (session-based)
+* 👤 **Author Attribution** — Setiap artikel terhubung dengan pembuatnya
+* 📊 **Dashboard** — Halaman khusus untuk user yang login
+* 🌙 **Dark Mode UI** — Tampilan clean dengan tema gelap ala GitHub
 
 ---
 
-## Requirements
+## 🛠️ Tech Stack
 
-- **PHP** 8.2 or higher (with extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML)
-- **Composer**
-- **Node.js** & **npm** (for frontend assets, if using Vite)
-- **SQLite** (or MySQL/PostgreSQL — adjust `.env` accordingly)
+| Layer       | Technology                     |
+| ----------- | ------------------------------ |
+| Backend     | Laravel 12, PHP 8.2+           |
+| Frontend    | Blade Templates, Vanilla JS    |
+| Styling     | Custom CSS (GitHub Dark Theme) |
+| Database    | SQLite (default), MySQL ready  |
+| Build Tools | Vite (optional)                |
 
 ---
 
-## Installation
+## 📋 Requirements
 
-### 1. Clone the repository
+Pastikan environment kamu memenuhi:
+
+* PHP **8.2+**
+
+  * Extensions: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
+* Composer
+* Node.js & npm *(optional untuk asset build)*
+* SQLite / MySQL / PostgreSQL
+
+---
+
+## 🚀 Installation
+
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/EsH-4/WiHub.git
 cd WiHub
 ```
 
-### 2. Install dependencies and configure
+---
+
+### 2. Install Dependency & Setup App
 
 ```bash
 composer install
@@ -57,113 +63,145 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-### 3. Database setup (SQLite)
+---
 
-Create the SQLite database file and run migrations:
+### 3. Setup Database
+
+#### SQLite (Default)
 
 ```bash
-# On Linux/macOS
+# Linux/macOS
 touch database/database.sqlite
 
-# On Windows (PowerShell)
+# Windows (PowerShell)
 New-Item -Path database\database.sqlite -ItemType File -Force
 
-# Run migrations
 php artisan migrate
 ```
 
-If you prefer **MySQL** or **PostgreSQL**, set `DB_CONNECTION`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` in `.env`, then run `php artisan migrate`.
+#### MySQL / PostgreSQL
 
-### 4. (Optional) Frontend assets
+Edit `.env`:
+
+```
+DB_CONNECTION=mysql
+DB_DATABASE=your_db
+DB_USERNAME=your_user
+DB_PASSWORD=your_password
+```
+
+Lalu jalankan:
+
+```bash
+php artisan migrate
+```
+
+---
+
+### 4. (Optional) Build Frontend Assets
 
 ```bash
 npm install
 npm run build
 ```
 
-### 5. Run the application
+---
+
+### 5. Run Application
 
 ```bash
 php artisan serve
 ```
 
-Open **http://127.0.0.1:8000** in your browser.
+Buka di browser:
+👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
-## Quick setup (all-in-one)
+## ⚡ Quick Setup
 
-After cloning and copying `.env.example` to `.env`, you can run:
+Untuk setup cepat:
 
 ```bash
 composer run-script setup
 ```
 
-This runs `composer install`, generates `APP_KEY`, runs migrations, installs npm dependencies, and builds assets. Ensure `database/database.sqlite` exists before running it when using SQLite.
+⚠️ Pastikan file `database/database.sqlite` sudah ada sebelum menjalankan perintah ini.
 
 ---
 
-## Usage
+## 📚 Usage
 
-| Action              | URL / Route              |
-| ------------------- | ------------------------ |
-| Home                | `/`                      |
-| All articles        | `/articles`              |
-| View article        | `/articles/{id}`         |
-| Create article      | `/articles/create` (auth)|
-| Edit article        | `/articles/{id}/edit` (auth) |
-| Login               | `/login`                 |
-| Register            | `/register`              |
-| Dashboard           | `/dashboard` (auth)      |
+| Feature        | Route                     |
+| -------------- | ------------------------- |
+| Home           | `/`                       |
+| Articles       | `/articles`               |
+| View Article   | `/articles/{id}`          |
+| Create Article | `/articles/create` (auth) |
+| Edit Article   | `/articles/{id}/edit`     |
+| Login          | `/login`                  |
+| Register       | `/register`               |
+| Dashboard      | `/dashboard` (auth)       |
 
-Only authenticated users can create, edit, and delete articles. Search is available on the articles index page.
+🔒 Hanya user login yang bisa membuat, mengedit, dan menghapus artikel.
 
 ---
 
-## Project structure (overview)
+## 📁 Project Structure
 
 ```
 WiHub/
 ├── app/
 │   ├── Http/Controllers/
-│   │   ├── ArticleController.php   # Article CRUD
-│   │   └── AuthController.php      # Login, register, logout
+│   │   ├── ArticleController.php
+│   │   └── AuthController.php
 │   └── Models/
 │       ├── Article.php
 │       └── User.php
-├── database/migrations/            # Users, articles, cache, jobs
+├── database/migrations/
 ├── resources/views/
-│   ├── layouts/app.blade.php        # Main layout with nav
-│   ├── articles/                   # Index, show, create, edit
-│   ├── auth/                       # Login, register (or welcome)
+│   ├── layouts/
+│   ├── articles/
+│   ├── auth/
 │   └── dashboard.blade.php
-├── routes/web.php                  # All web routes
-└── public/css/github-dark.css      # Main stylesheet
+├── routes/web.php
+└── public/css/github-dark.css
 ```
 
 ---
 
-## Environment
+## ⚙️ Environment Variables
 
-Key variables in `.env`:
+Beberapa konfigurasi penting di `.env`:
 
-- `APP_NAME` — Application name
-- `APP_KEY` — Encryption key (required; generate with `php artisan key:generate`)
-- `APP_URL` — Base URL (e.g. `http://localhost:8000`)
-- `DB_CONNECTION` — `sqlite`, `mysql`, or `pgsql`
-- For MySQL: `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
+* `APP_NAME` — Nama aplikasi
+* `APP_KEY` — Kunci enkripsi
+* `APP_URL` — URL aplikasi
+* `DB_CONNECTION` — sqlite / mysql / pgsql
+* `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
 
-See `.env.example` for the full list.
-
----
-
-## License
-
-This project is open-sourced under the [MIT License](https://opensource.org/licenses/MIT).
+Lihat `.env.example` untuk detail lengkap.
 
 ---
 
-## Acknowledgments
+## 📄 License
 
-- Built with [Laravel](https://laravel.com).
-- UI inspired by GitHub’s dark theme.
+Project ini menggunakan lisensi **MIT**.
+👉 [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+
+---
+
+## 🙌 Acknowledgments
+
+* Built with ❤️ using [Laravel](https://laravel.com)
+* UI inspired by GitHub Dark Theme
+
+---
+
+## 🔧 Improvement yang gue lakukan
+
+* Konsistensi bahasa & style (lebih profesional)
+* Penambahan emoji secukupnya biar lebih readable
+* Struktur section lebih rapi & modern
+* Terminologi lebih jelas (misal: “Article Management” instead of panjang)
+* Table & spacing dibenerin biar clean
