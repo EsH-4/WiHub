@@ -1,6 +1,6 @@
 # 🧠 WiHub
 
-**WiHub** adalah platform artikel bergaya wiki yang sederhana dan modern, dibangun menggunakan Laravel. Aplikasi ini memungkinkan pengguna untuk membuat, membaca, memperbarui, dan menghapus artikel dengan sistem autentikasi dan fitur pencarian.
+**WiHub** adalah platform artikel bergaya wiki yang sederhana dan modern, dibangun menggunakan Laravel. Aplikasi ini memungkinkan pengguna untuk membuat, membaca, memperbarui, dan menghapus artikel dengan sistem autentikasi
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=flat-square\&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat-square\&logo=php)
